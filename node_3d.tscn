@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://b5ocubgdqs5i1"]
+
+[ext_resource type="Script" uid="uid://m0n5yu0hvhwf" path="res://Main.gd" id="1_r3fl7"]
+[ext_resource type="Script" uid="uid://car3p3me5s81t" path="res://settingsScript.gd" id="2_r3fl7"]
+[ext_resource type="ArrayMesh" uid="uid://c53mt148qx185" path="res://3ba/Output.obj" id="3_r3fl7"]
+[ext_resource type="Script" uid="uid://66gs86ogxenp" path="res://addons/orbit_camera/orbit_camera.gd" id="5_jka67"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+
+[node name="Node" type="Node" unique_id=918873692]
+script = ExtResource("1_r3fl7")
+isInDebug = true
+
+[node name="Control" type="Control" parent="." unique_id=1081518445]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HBoxContainer" parent="Control" unique_id=200773959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control/HSplitContainer" unique_id=389286829]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+
+[node name="Tats" type="VBoxContainer" parent="Control/HSplitContainer/TabContainer" unique_id=1324180057]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="LineEdit" type="LineEdit" parent="Control/HSplitContainer/TabContainer/Tats" unique_id=1689394974]
+layout_mode = 2
+placeholder_text = "search tatnames"
+
+[node name="Tats" type="Tree" parent="Control/HSplitContainer/TabContainer/Tats" unique_id=828185633]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 3
+column_titles_visible = true
+
+[node name="Settings" type="Tree" parent="Control/HSplitContainer/TabContainer" unique_id=601503500]
+visible = false
+layout_mode = 2
+columns = 2
+allow_search = false
+hide_folding = true
+enable_recursive_folding = false
+hide_root = true
+script = ExtResource("2_r3fl7")
+metadata/_tab_index = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/HSplitContainer" unique_id=1096746545]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/HSplitContainer/SubViewportContainer" unique_id=2035085227]
+handle_input_locally = false
+size = Vector2i(597, 900)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="Control/HSplitContainer/SubViewportContainer/SubViewport" unique_id=593106539]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Control/HSplitContainer/SubViewportContainer/SubViewport/Node3D" unique_id=969867281]
+mesh = ExtResource("3_r3fl7")
+surface_material_override/1 = SubResource("StandardMaterial3D_jka67")
+
+[node name="Node3D2" type="Node3D" parent="Control/HSplitContainer/SubViewportContainer/SubViewport" unique_id=1745256657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 90, 0)
+
+[node name="OrbitCamera" type="Camera3D" parent="Control/HSplitContainer/SubViewportContainer/SubViewport/Node3D2" unique_id=250313027]
+script = ExtResource("5_jka67")
+SCROLL_SPEED = 50.0
+DEFAULT_DISTANCE = 60.0
+ROTATE_SPEED = 1.0
+PAN_SPEED = 2.0
+ANCHOR_NODE_PATH = NodePath("../../Node3D")
+metadata/_custom_type_script = "uid://66gs86ogxenp"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Control/HSplitContainer/SubViewportContainer/SubViewport" unique_id=339519524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.52633, 69.232544)
+light_energy = 16.0
+omni_range = 9999.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Control/HSplitContainer/SubViewportContainer/SubViewport" unique_id=1255890694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 105.57907, 62.295666)
+light_energy = 16.0
+omni_range = 9999.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Control/HSplitContainer/SubViewportContainer/SubViewport" unique_id=462130340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 87.13063, -65.34622)
+light_energy = 16.0
+omni_range = 4096.0
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HSplitContainer" unique_id=1897683964]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/HSplitContainer/SubViewportContainer2" unique_id=2103942867]
+handle_input_locally = false
+size = Vector2i(598, 900)
+render_target_update_mode = 4
+
+[node name="Node3D3" type="Node3D" parent="Control/HSplitContainer/SubViewportContainer2/SubViewport" unique_id=167448304]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 90, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Control/HSplitContainer/SubViewportContainer2/SubViewport/Node3D3" unique_id=541192437]
+current = true
+
+[node name="HBoxContainer" type="TabContainer" parent="Control" unique_id=1302870016]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -617.0
+offset_top = -89.0
+grow_horizontal = 0
+grow_vertical = 0
+tab_alignment = 2
+current_tab = 0
+
+[node name="Main" type="HBoxContainer" parent="Control/HBoxContainer" unique_id=449230779]
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_tab_index = 0
+
+[node name="ShowOnlyActive" type="Button" parent="Control/HBoxContainer/Main" unique_id=587457221]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show only active"
+
+[node name="ResetView" type="Button" parent="Control/HBoxContainer/Main" unique_id=1268050431]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset View"
+
+[node name="ExportTats" type="Button" parent="Control/HBoxContainer/Main" unique_id=1148578323]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export Preset"
+
+[node name="ExportDDS" type="Button" parent="Control/HBoxContainer/Main" unique_id=328113644]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export as Image"
+
+[node name="Overlap" type="HBoxContainer" parent="Control/HBoxContainer" unique_id=2070367723]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+metadata/_tab_index = 1
+
+[node name="NonOverlap" type="Button" parent="Control/HBoxContainer/Overlap" unique_id=912149186]
+layout_mode = 2
+text = "Show only non-overlap"
+
+[node name="LoadAll" type="Button" parent="Control/HBoxContainer/Overlap" unique_id=806231370]
+layout_mode = 2
+text = "Load all Images"
+
+[node name="AddRandomNonOverlap" type="Button" parent="Control/HBoxContainer/Overlap" unique_id=358398967]
+layout_mode = 2
+text = "Add 1 non-overlap"
+
+[node name="AddRandomNonOverlap10" type="Button" parent="Control/HBoxContainer/Overlap" unique_id=62417705]
+layout_mode = 2
+text = "Add 10 non-overlap"
+
+[node name="GetRandomNonOverlap" type="Button" parent="Control/HBoxContainer/Overlap" unique_id=1302784145]
+layout_mode = 2
+text = "Delete all +
+Fill with non-overlap"
+
+[node name="AllOverlaps" type="Button" parent="Control/HBoxContainer/Overlap" unique_id=1114270997]
+visible = false
+layout_mode = 2
+text = "Find All Overlaps"
+
+[node name="Remove" type="HBoxContainer" parent="Control/HBoxContainer" unique_id=57243650]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="RemoveLast" type="Button" parent="Control/HBoxContainer/Remove" unique_id=42332142]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remove last tat"
+
+[node name="RemoveLast10" type="Button" parent="Control/HBoxContainer/Remove" unique_id=1849700362]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remove last 10 tats"
+
+[node name="RemoveAllTats" type="Button" parent="Control/HBoxContainer/Remove" unique_id=2003746782]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remove All Tats"
+
+[node name="Label" type="Label" parent="Control" unique_id=1890074907]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading "
+
+[connection signal="text_changed" from="Control/HSplitContainer/TabContainer/Tats/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="item_edited" from="Control/HSplitContainer/TabContainer/Tats/Tats" to="." method="_on_tree_item_edited"]
+[connection signal="item_edited" from="Control/HSplitContainer/TabContainer/Settings" to="Control/HSplitContainer/TabContainer/Settings" method="_on_item_edited"]
+[connection signal="pressed" from="Control/HBoxContainer/Main/ShowOnlyActive" to="." method="_on_show_only_active_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Main/ResetView" to="." method="_on_reset_view_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Main/ExportTats" to="." method="_on_export_tats_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Main/ExportDDS" to="." method="_on_export_dds_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Overlap/NonOverlap" to="." method="_on_non_overlap_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Overlap/LoadAll" to="." method="_on_load_all_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Overlap/AddRandomNonOverlap" to="." method="_on_add_random_non_overlap_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Overlap/AddRandomNonOverlap10" to="." method="_on_add_random_non_overlap_10_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Overlap/GetRandomNonOverlap" to="." method="_on_get_random_non_overlap_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Overlap/AllOverlaps" to="." method="_on_all_overlaps_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Remove/RemoveLast" to="." method="_on_remove_last_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Remove/RemoveLast10" to="." method="_on_remove_last_10_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Remove/RemoveAllTats" to="." method="_on_remove_all_tats_pressed"]

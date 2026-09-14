@@ -15,3 +15,9 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+*.dds
+*.uid
+3ba/
+.gitattributes
+.editorconfig
